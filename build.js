@@ -11,21 +11,12 @@ const buildBundle = async ({ inputOptions, outputOptions }) => {
   await bundle.close();
 };
 
-const plugins = [
-  commonjs(),
-  nodeResolve(),
-];
-
-const external = [
-  'sharedb/lib/client',
-];
-
 const buildClient = async () => {
   await buildBundle({
     inputOptions: {
       input: 'client.js',
-      plugins,
-      external,
+      plugins: [ nodeResolve(), commonjs() ],
+      external: ['sharedb/lib/client'],
     },
     outputOptions: {
       file: 'bundle.js',

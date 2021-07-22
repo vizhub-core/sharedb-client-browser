@@ -14,5 +14,8 @@
     "@rollup/plugin-commonjs": "^19.0.1",
     "@rollup/plugin-node-resolve": "^13.0.2",
     "rollup": "^2.53.3"
+  },
+  "dependencies": {
+    "sharedb": "^1.9.1"
   }
 }
