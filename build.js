@@ -1,6 +1,7 @@
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 // Inspired by
 // https://rollupjs.org/guide/en/#rolluprollup
@@ -15,8 +16,13 @@ const buildClient = async () => {
   await buildBundle({
     inputOptions: {
       input: 'client.js',
-      plugins: [ nodeResolve(), commonjs() ],
-      external: ['sharedb/lib/client'],
+      plugins: [
+        nodePolyfills(),
+        nodeResolve(),
+        commonjs(),
+      ],
+// Solved it! The trick is to _not_ declare this as external.
+//      external: ['sharedb/lib/client'],
     },
     outputOptions: {
       file: 'bundle.js',
