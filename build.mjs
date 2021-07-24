@@ -1,7 +1,7 @@
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import builtins from 'rollup-plugin-node-builtins';
+import nodePolyfills from 'rollup-plugin-polyfill-node';
 import { terser } from 'rollup-plugin-terser';
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
 
@@ -21,13 +21,14 @@ const buildClient = async () => {
       input: 'client.js',
       plugins: [
         commonjs(),
-        builtins(),
+        nodePolyfills(),
         nodeResolve(),
       ],
     },
     outputOptions: {
       file: 'sharedb-client-browser.js',
-      format: 'iife',
+      format: 'umd',
+      name: 'ShareDBClient'
     },
   });
 };
@@ -38,21 +39,26 @@ const buildOptimized = async () => {
     inputOptions: {
       input: 'client.js',
       // Results:
-      //  - Terser alone           --> 86.2 kB
-      //  - Closure Compiler alone --> 68.0 kB
-      //  - Both --> 67.2 kB
+      //  - Terser alone           --> 86.4 kB
+      //  - Closure Compiler alone --> 84.2 kB
+      //  - Both                   --> 83.6 kB
       // Went with both.
       plugins: [
         commonjs(),
-        builtins(),
+        nodePolyfills(),
         nodeResolve(),
-        compiler({ compilation_level: 'ADVANCED' }),
+
+        // Unfortunately we can't use advanced compilation
+        // because it mangles property names that are important.
+        compiler(),
+
         terser(),
       ],
     },
     outputOptions: {
       file: 'sharedb-client-browser.min.js',
-      format: 'iife'
+      format: 'umd',
+      name: 'ShareDBClient'
     },
   });
 };
