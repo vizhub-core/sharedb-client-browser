@@ -1,8 +1,8 @@
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
-import { terser } from "rollup-plugin-terser";
+import builtins from 'rollup-plugin-node-builtins';
+import { terser } from 'rollup-plugin-terser';
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
 
 // Inspired by
@@ -21,7 +21,7 @@ const buildClient = async () => {
       input: 'client.js',
       plugins: [
         commonjs(),
-        nodePolyfills(),
+        builtins(),
         nodeResolve(),
       ],
     },
@@ -44,7 +44,7 @@ const buildOptimized = async () => {
       // Went with both.
       plugins: [
         commonjs(),
-        nodePolyfills(),
+        builtins(),
         nodeResolve(),
         compiler({ compilation_level: 'ADVANCED' }),
         terser(),
