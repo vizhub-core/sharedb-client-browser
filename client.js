@@ -1,3 +1,3 @@
-import sharedb from 'sharedb/lib/client';
+import ShareDBClient from 'sharedb/lib/client';
 
-console.log(sharedb);
+window['ShareDBClient'] = ShareDBClient;
