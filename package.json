@@ -1,5 +1,5 @@
 {
-  "name": "sharedb-client-browser-build",
+  "name": "sharedb-client-browser",
   "version": "1.0.0",
   "description": "",
   "browser": "sharedb-client-browser.min.js",
@@ -11,8 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.mjs"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Curran Kelleher",
+  "license": "MIT",
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
     "@rollup/plugin-commonjs": "^19.0.1",
