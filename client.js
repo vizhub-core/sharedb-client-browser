@@ -1,3 +1,3 @@
-import sharedb from 'sharedb/lib/client';
+import ShareDBClient from 'sharedb/lib/client';
 
-export default sharedb;
+window['ShareDBClient'] = ShareDBClient;

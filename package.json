@@ -1,12 +1,15 @@
 {
-  "name": "sharedbrolluptest",
+  "name": "sharedb-client-browser-build",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "browser": "sharedb-client-browser.min.js",
+  "files": [
+    "sharedb-client-browser.js",
+    "sharedb-client-browser.min.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js"
+    "build": "node build.mjs"
   },
   "author": "",
   "license": "ISC",

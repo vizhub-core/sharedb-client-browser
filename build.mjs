@@ -14,39 +14,45 @@ const buildBundle = async ({ inputOptions, outputOptions }) => {
   await bundle.close();
 };
 
+// Build the client bundle, non-optimized.
 const buildClient = async () => {
   await buildBundle({
     inputOptions: {
       input: 'client.js',
       plugins: [
+        commonjs(),
         nodePolyfills(),
         nodeResolve(),
-        commonjs(),
-//        compiler(),
-//        terser(),
       ],
-// Solved it! The trick is to _not_ declare this as external.
-//      external: ['sharedb/lib/client'],
     },
     outputOptions: {
-      file: 'bundle.js',
-      format: 'umd',
-      name: 'ShareDBClient'
+      file: 'sharedb-client-browser.js',
+      format: 'iife',
     },
   });
 };
 
+// Optimize the size of the bundle.
 const buildOptimized = async () => {
   await buildBundle({
     inputOptions: {
-      input: 'bundle.js',
+      input: 'client.js',
+      // Results:
+      //  - Terser alone           --> 86.2 kB
+      //  - Closure Compiler alone --> 68.0 kB
+      //  - Both --> 67.2 kB
+      // Went with both.
       plugins: [
-        compiler({compilation_level:'ADVANCED'}),
+        commonjs(),
+        nodePolyfills(),
+        nodeResolve(),
+        compiler({ compilation_level: 'ADVANCED' }),
+        terser(),
       ],
     },
     outputOptions: {
-      file: 'bundle.min.js',
-      format: 'umd',
+      file: 'sharedb-client-browser.min.js',
+      format: 'iife'
     },
   });
 };
