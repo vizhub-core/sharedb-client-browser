@@ -1,6 +1,6 @@
 {
   "name": "sharedb-client-browser",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "",
   "browser": "sharedb-client-browser.min.js",
   "files": [
@@ -8,23 +8,26 @@
     "sharedb-client-browser.min.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "upgradeDependencies": "ncu -u",
     "build": "node build.mjs",
     "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vizhub-open-core/sharedb-client-browser.git"
+  },
   "author": "Curran Kelleher",
   "license": "MIT",
   "devDependencies": {
-    "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
-    "@rollup/plugin-commonjs": "^19.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.3",
-    "npm-check-updates": "^11.8.3",
-    "rollup": "^2.53.3",
-    "rollup-plugin-polyfill-node": "^0.7.0",
+    "@ampproject/rollup-plugin-closure-compiler": "^0.27.0",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "npm-check-updates": "^12.5.2",
+    "rollup": "^2.69.1",
+    "rollup-plugin-polyfill-node": "^0.8.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "sharedb": "^1.9.1"
+    "sharedb": "^2.2.5"
   }
 }
