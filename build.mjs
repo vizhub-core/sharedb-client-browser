@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -18,7 +19,7 @@ const buildBundle = async ({ inputOptions, outputOptions }) => {
 const buildClient = async (otType) => {
   await buildBundle({
     inputOptions: {
-      input: `client-${otType}.js`,
+      input: `client.js`,
       plugins: [commonjs(), nodePolyfills(), nodeResolve()],
     },
     outputOptions: {
@@ -63,6 +64,22 @@ const buildOptimized = async (otType) => {
 await buildClient('json0');
 await buildOptimized('json0');
 
+// Hack node_modules so that when ShareDB requires 'ot-json0' it gets 'ot-json1'.
+fs.renameSync(
+  'node_modules/ot-json0/lib/index.js',
+  'node_modules/ot-json0/lib/index_original.js'
+);
+fs.writeFileSync(
+  'node_modules/ot-json0/lib/index.js',
+  "module.exports = require('ot-json1');"
+);
+
 // Provide a build that bundles JSON1 as the default OT Type.
 await buildClient('json1');
 await buildOptimized('json1');
+
+// Restore the original state of node_modules.
+fs.renameSync(
+  'node_modules/ot-json0/lib/index_original.js',
+  'node_modules/ot-json0/lib/index.js'
+);

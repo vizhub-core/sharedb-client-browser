@@ -1,6 +1,6 @@
 {
   "name": "sharedb-client-browser",
-  "version": "2.2.4",
+  "version": "2.2.41",
   "description": "",
   "browser": "sharedb-client-browser.min.js",
   "files": [
@@ -33,6 +33,7 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
+    "ot-json0": "^1.1.0",
     "sharedb": "^2.2.5"
   }
 }
