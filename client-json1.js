@@ -4,9 +4,17 @@
 //
 // Modified to swap out JSON0 with JSON1 as the default OT type.
 
-export const types = {};
-
+import Connection from 'sharedb/lib/client/connection';
+import Doc from 'sharedb/lib/client/doc';
+import Query from 'sharedb/lib/client/query';
+import Error from 'sharedb/lib/error';
+import logger from 'sharedb/lib/logger';
 import json1 from 'ot-json1';
+
+console.log('Connection');
+console.log(Connection);
+
+const types = {};
 
 types.defaultType = json1.type;
 
@@ -19,8 +27,4 @@ types.register = function (type) {
 
 types.register(types.defaultType);
 
-export { Connection } from 'sharedb/lib/client/connection';
-export { Doc } from 'sharedb/lib/client/doc';
-export { Query } from 'sharedb/lib/client/query';
-export { Error } from 'sharedb/lib/error';
-export { logger } from 'sharedb/lib/logger';
+export { Connection, Doc, Query, Error, logger, types };

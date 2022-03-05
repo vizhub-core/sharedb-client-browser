@@ -1,2 +1,4 @@
 sharedb-client-*
 .prettierignore
+.gitignore
+*.swp
