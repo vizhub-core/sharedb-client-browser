@@ -34,7 +34,7 @@ const buildClient = async (otType) => {
 const buildOptimized = async (otType) => {
   await buildBundle({
     inputOptions: {
-      input: `client-${otType}.js`,
+      input: `client.js`,
       // Results:
       //  - Terser alone           --> 86.4 kB
       //  - Closure Compiler alone --> 84.2 kB
