@@ -1,16 +1,19 @@
 {
   "name": "sharedb-client-browser",
-  "version": "2.1.0",
+  "version": "2.2.1",
   "description": "",
   "browser": "sharedb-client-browser.min.js",
   "files": [
-    "sharedb-client-browser.js",
-    "sharedb-client-browser.min.js"
+    "sharedb-client-json0-browser.js",
+    "sharedb-client-json0-browser.min.js",
+    "sharedb-client-json0-browser.js",
+    "sharedb-client-json0-browser.min.js"
   ],
   "scripts": {
     "upgradeDependencies": "ncu -u",
     "build": "node build.mjs",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prettier": "prettier {*.*,**/*.*} --single-quote --write"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,8 @@
     "@rollup/plugin-commonjs": "^21.0.2",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "npm-check-updates": "^12.5.2",
+    "ot-json1": "^1.0.2",
+    "prettier": "^2.5.1",
     "rollup": "^2.69.1",
     "rollup-plugin-polyfill-node": "^0.8.0",
     "rollup-plugin-terser": "^7.0.2"

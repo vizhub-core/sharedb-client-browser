@@ -15,29 +15,25 @@ const buildBundle = async ({ inputOptions, outputOptions }) => {
 };
 
 // Build the client bundle, non-optimized.
-const buildClient = async () => {
+const buildClient = async (otType) => {
   await buildBundle({
     inputOptions: {
-      input: 'client.js',
-      plugins: [
-        commonjs(),
-        nodePolyfills(),
-        nodeResolve(),
-      ],
+      input: `client-${otType}.js`,
+      plugins: [commonjs(), nodePolyfills(), nodeResolve()],
     },
     outputOptions: {
-      file: 'sharedb-client-browser.js',
+      file: `sharedb-client-${otType}-browser.js`,
       format: 'umd',
-      name: 'ShareDBClient'
+      name: 'ShareDBClient',
     },
   });
 };
 
 // Optimize the size of the bundle.
-const buildOptimized = async () => {
+const buildOptimized = async (otType) => {
   await buildBundle({
     inputOptions: {
-      input: 'client.js',
+      input: `client-${otType}.js`,
       // Results:
       //  - Terser alone           --> 86.4 kB
       //  - Closure Compiler alone --> 84.2 kB
@@ -56,12 +52,17 @@ const buildOptimized = async () => {
       ],
     },
     outputOptions: {
-      file: 'sharedb-client-browser.min.js',
+      file: `sharedb-client-${otType}-browser.min.js`,
       format: 'umd',
-      name: 'ShareDBClient'
+      name: 'ShareDBClient',
     },
   });
 };
 
-await buildClient();
-await buildOptimized();
+// Provide a build that bundles JSON0 as the default OT Type.
+await buildClient('json0');
+await buildOptimized('json0');
+
+// Provide a build that bundles JSON1 as the default OT Type.
+await buildClient('json1');
+await buildOptimized('json1');
