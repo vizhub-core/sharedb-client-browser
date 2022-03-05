@@ -1,6 +1,6 @@
 {
   "name": "sharedb-client-browser",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "",
   "browser": "sharedb-client-browser.min.js",
   "files": [

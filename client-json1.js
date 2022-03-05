@@ -9,22 +9,11 @@ import Doc from 'sharedb/lib/client/doc';
 import Query from 'sharedb/lib/client/query';
 import Error from 'sharedb/lib/error';
 import logger from 'sharedb/lib/logger';
+import types from 'sharedb/lib/types';
 import json1 from 'ot-json1';
 
-console.log('Connection');
-console.log(Connection);
-
-const types = {};
-
+// TODO figure out how to exclude json0 from the bundle
 types.defaultType = json1.type;
-
-types.map = {};
-
-types.register = function (type) {
-  if (type.name) types.map[type.name] = type;
-  if (type.uri) types.map[type.uri] = type;
-};
-
 types.register(types.defaultType);
 
 export { Connection, Doc, Query, Error, logger, types };
