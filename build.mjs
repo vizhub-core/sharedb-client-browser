@@ -71,7 +71,7 @@ fs.renameSync(
 );
 fs.writeFileSync(
   'node_modules/ot-json0/lib/index.js',
-  'module.exports = {};'
+  'module.exports = {type:{name:"json0"}};'
   //"module.exports = require('ot-json1');"
 );
 
