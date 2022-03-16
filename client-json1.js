@@ -6,6 +6,6 @@ import json1 from 'ot-json1';
 // that is designed for json0.
 // See https://github.com/share/sharedb/blob/master/lib/client/doc.js#L621
 
-ShareDBClient.types.register(json1);
+ShareDBClient.types.register(json1.type);
 
 export default ShareDBClient;
