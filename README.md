@@ -12,10 +12,10 @@ Example use:
 
 Files provided include:
 
- * sharedb-client-json0-browser.js
- * sharedb-client-json0-browser.min.js
- * sharedb-client-json1-browser.js
- * sharedb-client-json1-browser.min.js
+- sharedb-client-json0-browser.js
+- sharedb-client-json0-browser.min.js
+- sharedb-client-json1-browser.js
+- sharedb-client-json1-browser.min.js
 
 See also [index of files in JSDelivr](https://cdn.jsdelivr.net/npm/sharedb-client-browser/) (shows file sizes).
 
