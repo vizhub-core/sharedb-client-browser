@@ -8,6 +8,9 @@ import textUnicode from 'ot-text-unicode';
 // See https://github.com/share/sharedb/blob/master/lib/client/doc.js#L621
 
 ShareDBClient.types.register(json1.type);
-ShareDBClient.types.register(textUnicode.type);
+
+// Expose textUnicode like this so that downstream consumers
+// can access it.
+ShareDBClient.textUnicode = textUnicode;
 
 export default ShareDBClient;
