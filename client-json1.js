@@ -9,8 +9,8 @@ import textUnicode from 'ot-text-unicode';
 
 ShareDBClient.types.register(json1.type);
 
-// Expose textUnicode like this so that downstream consumers
-// can access it.
+// Expose OT types like this so that downstream consumers can access them.
+ShareDBClient.json1 = json1;
 ShareDBClient.textUnicode = textUnicode;
 
 export default ShareDBClient;
