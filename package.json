@@ -5,9 +5,8 @@
   "browser": "sharedb-client-browser.min.js",
   "files": [
     "sharedb-client-json0-browser.js",
-    "sharedb-client-json0-browser.min.js",
     "sharedb-client-json1-browser.js",
-    "sharedb-client-json1-browser.min.js"
+    "sharedb-client-json1-presence-browser.js"
   ],
   "scripts": {
     "upgradeDependencies": "ncu -u",
