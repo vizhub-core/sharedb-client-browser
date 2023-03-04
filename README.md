@@ -23,4 +23,7 @@ This build uses [Rollup](https://rollupjs.org/), [rollup-plugin-polyfill-node](h
 
 Some `node_modules` hackery was done to replace `ot-json0` with `ot-json1` such that `ot-json0` is excluded entirely from the bundle.
 
-See also [GitHub Issue for ShareDB: Browser build for client](https://github.com/share/sharedb/issues/499).
+See also
+
+ * [GitHub Issue for ShareDB: Browser build for client](https://github.com/share/sharedb/issues/499)
+ * [GitHub Issue for VZCode: Make JSON1 with presence available to frontend and backend](https://github.com/vizhub-core/vzcode/pull/51) - some of the reasoning for including the JSON1 with presence build here

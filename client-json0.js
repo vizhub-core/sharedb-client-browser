@@ -1,3 +1,3 @@
-import ShareDBClient from 'sharedb/lib/client';
+const ShareDBClient = require('sharedb/lib/client');
 
-export default ShareDBClient;
+module.exports = ShareDBClient;
