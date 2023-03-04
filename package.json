@@ -13,7 +13,8 @@
     "upgradeDependencies": "ncu -u",
     "build-json0": "browserify client-json0.js -s ShareDBClient -o sharedb-client-json0-browser.js",
     "build-json1": "browserify client-json1.js -s ShareDBClient -o sharedb-client-json1-browser.js",
-    "build": "npm run build-json0; npm run build-json1",
+    "build-json1-presence": "browserify client-json1-presence.js -s ShareDBClient -o sharedb-client-json1-presence-browser.js",
+    "build": "npm run build-json0; npm run build-json1; npm run build-json1-presence",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -25,10 +26,9 @@
   "devDependencies": {
     "browserify": "^17.0.0",
     "npm-check-updates": "^16.7.10",
-    "ot-json1": "^1.0.2"
-  },
-  "dependencies": {
     "ot-json0": "^1.1.0",
+    "ot-json1": "^1.0.2",
+    "ot-json1-presence": "^1.0.0",
     "ot-text-unicode": "^4.0.0",
     "sharedb": "^3.2.4"
   }
