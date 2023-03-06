@@ -1,5 +1,3 @@
 node_modules
 *.swp
-package-lock.json
-sharedb-client*
-
+dist
