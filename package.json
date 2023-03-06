@@ -1,8 +1,10 @@
 {
   "name": "sharedb-client-browser",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Vite-compatible builds for ShareDB and OT types",
-  "files": [ "dist" ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build-sharedb-client": "browserify src/sharedb-client.js -s ShareDBClient -o dist/sharedb-client-umd.cjs",
     "build-ot-json1": "browserify src/ot-json1.js -s OTJSON1 -o dist/ot-json1-umd.cjs",
