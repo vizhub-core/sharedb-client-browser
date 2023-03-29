@@ -24,6 +24,6 @@
     "ot-json1": "^1.0.2",
     "ot-json1-presence": "^2.0.0",
     "ot-text-unicode": "^4.0.0",
-    "sharedb": "^3.3.0"
+    "sharedb": "^3.3.1"
   }
 }
