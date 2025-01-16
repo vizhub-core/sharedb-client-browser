@@ -1,6 +1,6 @@
 {
   "name": "sharedb-client-browser",
-  "version": "5.0.2",
+  "version": "5.1.1",
   "description": "Vite-compatible builds for ShareDB and OT types",
   "files": [
     "dist"
@@ -19,11 +19,11 @@
   "author": "Curran Kelleher",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^17.0.0",
+    "browserify": "^17.0.1",
     "ot-json0": "^1.1.0",
     "ot-json1": "^1.0.2",
     "ot-json1-presence": "^2.1.0",
     "ot-text-unicode": "^4.0.0",
-    "sharedb": "^5.0.3"
+    "sharedb": "^5.1.1"
   }
 }
