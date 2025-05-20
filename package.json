@@ -1,6 +1,6 @@
 {
   "name": "sharedb-client-browser",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "description": "Vite-compatible builds for ShareDB and OT types",
   "files": [
     "dist"
