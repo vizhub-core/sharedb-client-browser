@@ -26,3 +26,20 @@ See also
 
  * [GitHub Issue for ShareDB: Browser build for client](https://github.com/share/sharedb/issues/499)
  * [GitHub Issue for VZCode: Presence cursors](https://github.com/vizhub-core/vzcode/issues/16)
+
+## Upgrading ShareDB
+
+To cut a new release when ShareDB increments versions:
+
+```
+npm run upgrade
+npm i
+git commit -m "Upgrade ShareDB" -a
+# Adjust the following command as needed to match upstream ShareDB version
+npm version patch
+npm publish
+git push
+git push --tags
+```
+
+Then put a new release in GitHub
